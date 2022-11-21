@@ -20,6 +20,7 @@ const GetCourseDetails = async (req, res) => {
 
 const CreateCourse = async (req, res) => {
   try {
+    let courseBody = {...req.body}
     const newCourse = await Course.create(courseBody)
     res.send(newCourse)
   } catch (error) {
@@ -34,6 +35,7 @@ const UpdateCourse = async (req, res) => {
       where: {id: courseId},
       returning: true
     })
+    res.send(updatedCourse)
   } catch (error) {
     throw error 
   }
@@ -54,6 +56,7 @@ const DeleteCourse = async (req, res) => {
 module.exports = {
   GetAllCourses,
   GetCourseDetails,
+  CreateCourse,
   UpdateCourse,
   DeleteCourse
 }
