@@ -13,12 +13,19 @@ module.exports = (sequelize, DataTypes) => {
         through: models.StudentCourse,
         foreignKey: 'courseId'
       })
+      Course.hasMany(models.Grade, { as: 'scores', foreignKey: 'gradeId' })
     }
   }
   Course.init(
     {
       name: DataTypes.STRING,
-      grade: DataTypes.INTEGER
+      gradeId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'grades',
+          key: 'id'
+        }
+      }
     },
     {
       sequelize,
