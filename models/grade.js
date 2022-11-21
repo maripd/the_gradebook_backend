@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Grade.belongsTo(models.Student, { as: 'pupil', foreignKey: 'studentId' })
+      Grade.belongsTo(models.Course, { as: 'scores', foreignKey: 'courseId' })
     }
   }
   Grade.init(
@@ -20,6 +21,14 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         references: {
           model: 'students',
+          key: 'id'
+        }
+      },
+      courseId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'courses',
           key: 'id'
         }
       }

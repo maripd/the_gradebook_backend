@@ -13,13 +13,15 @@ module.exports = (sequelize, DataTypes) => {
         through: models.StudentCourse,
         foreignKey: 'studentId'
       })
+      Student.hasMany(models.Grade, {
+        foreignKey: 'studentId'
+      })
     }
   }
   Student.init(
     {
       name: DataTypes.STRING,
-      email: DataTypes.STRING,
-      courses: DataTypes.STRING
+      email: DataTypes.STRING
     },
     {
       sequelize,
