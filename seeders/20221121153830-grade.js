@@ -1,9 +1,11 @@
 'use strict'
+
 const falso = require('@ngneat/falso')
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
+
     const grades = [...Array(6)].map((_) => {
       return {
         score: falso.randNumber({ min: 0, max: 4 }),

@@ -1,4 +1,5 @@
 'use strict'
+
 const falso = require(`@ngneat/falso`)
 
 /** @type {import('sequelize-cli').Migration} */
