@@ -8,7 +8,7 @@ module.exports = {
     const courses = [...Array(6)].map((_) => {
       return {
         name: falso.randJobType(),
-        studentId: falso.randNumber({ min: 1, max: 3 }),
+        studentId: falso.randNumber({ min: 1, max: 35 }),
         createdAt: new Date(),
         updatedAt: new Date()
       }
