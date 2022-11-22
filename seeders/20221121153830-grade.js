@@ -5,7 +5,7 @@ const falso = require('@ngneat/falso')
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    const grades = [...Array(35)].map((_) => {
+    const grades = [...Array(100)].map((_) => {
       return {
         score: falso.randNumber({ min: 0, max: 4 }),
         studentId: falso.randNumber({ min: 1, max: 35 }),
