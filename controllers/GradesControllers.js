@@ -5,7 +5,7 @@ const GetGradesByStudentId = async (req, res) => {
     const grades = await Grade.findAll({
       include: [
         { model: Course, as: 'scores', attributes: ['name'] },
-        { model: Student, as: 'pupil', attributes: ['name'] }
+        { model: Student, as: 'pupil', attributes: ['name', 'email'] }
       ]
     })
     res.send(grades)
