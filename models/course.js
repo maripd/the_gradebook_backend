@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         through: models.StudentCourse,
         foreignKey: 'courseId'
       })
-      Course.hasMany(models.Grade, { as: 'scores', foreignKey: 'gradeId' })
+      Course.hasMany(models.Grade, { as: 'scores', foreignKey: 'courseId' })
     }
   }
   Course.init(

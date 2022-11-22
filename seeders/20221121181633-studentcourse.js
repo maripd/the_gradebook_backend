@@ -1,24 +1,21 @@
 'use strict'
-
 const falso = require('@ngneat/falso')
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-
-    const grades = [...Array(6)].map((_) => {
+    const list = [...Array(6)].map((_) => {
       return {
-        score: falso.randNumber({ min: 0, max: 4 }),
         studentId: falso.randNumber({ min: 1, max: 3 }),
+        courseId: falso.randNumber({ min: 1, max: 6 }),
         createdAt: new Date(),
-        updatedAt: new Date(),
-        courseId: falso.randNumber({ min: 1, max: 6 })
+        updatedAt: new Date()
       }
     })
-    await queryInterface.bulkInsert('grades', grades)
+    await queryInterface.bulkInsert('student_courses', list)
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('grades')
+    await queryInterface.bulkDelete('student_courses')
   }
 }

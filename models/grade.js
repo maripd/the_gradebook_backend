@@ -15,7 +15,6 @@ module.exports = (sequelize, DataTypes) => {
   Grade.init(
     {
       score: DataTypes.INTEGER,
-      letter: DataTypes.STRING,
       studentId: {
         type: DataTypes.INTEGER,
         allowNull: false,
