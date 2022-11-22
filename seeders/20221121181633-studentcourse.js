@@ -4,9 +4,9 @@ const falso = require('@ngneat/falso')
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    const list = [...Array(6)].map((_) => {
+    const list = [...Array(35)].map((_) => {
       return {
-        studentId: falso.randNumber({ min: 1, max: 3 }),
+        studentId: falso.randNumber({ min: 1, max: 35 }),
         courseId: falso.randNumber({ min: 1, max: 6 }),
         createdAt: new Date(),
         updatedAt: new Date()
